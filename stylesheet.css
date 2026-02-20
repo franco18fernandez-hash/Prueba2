@@ -1,0 +1,109 @@
+* {
+    margin: auto;
+    padding: auto;
+}
+body {
+   text-align: center;
+   background: rgb(137, 188, 235);
+}
+
+.titulo    {
+    width: 240px;
+    height: 160px;
+    padding-bottom: 30px;
+    display:block; /* Hace que la imagen se comporte como un bloque, lo que permite centrarla utilizando margin: auto */
+    margin: auto; /* Centra la imagen horizontalmente dentro de su contenedor */
+    margin-bottom: 10px;
+    mix-blend-mode: multiply;
+}
+
+.division  {
+    background: rgb(255, 255, 255);
+    margin-left: 20px;
+    margin-right: 20px;
+    border: solid 1px black;   
+}
+
+.parrafo    {
+    color: black;
+    border: solid 1px rgb(0, 0, 0);
+    background: rgb(190, 190, 221);
+    margin: 0px 0px;  
+    padding: 2px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.redes, .noticias{
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.youtube, .tiktok, .instagram, .facebook, .hltv, .telefe, .infobae, .tn, .cronica, .CN26 {
+    font-style: italic;
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin: 0px 20px;
+    color: rgb(116, 116, 177);
+    padding: 5px;
+    -webkit-text-stroke: 0.001px black;
+}
+
+.subparrafo1, .subparrafo2 {
+    font-style: italic;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin: 0px 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.articulo1, .articulo2, .articulo3 {
+    color: rgb(0, 0, 0);
+    padding: 15px;
+}
+.pie    {
+    color: black;
+    border: solid 1px rgb(0, 0, 0);
+    background: rgb(150, 150, 150);  
+    padding: 0px;
+    padding-top: 0px;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 12px;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
+    min-height: 2vh;
+    clear: both;
+}
+
+.linea1, .linea2, .linea3 {
+    border: solid 1px black;
+    margin: 20px 0;
+    margin-top: 25px;
+}
+
+.mi-tabla {
+  width: 100%;                /* Ancho total */
+  border-collapse: collapse;  /* Bordes únicos */
+}
+.mi-tabla th, td {
+  border: 1px solid #ddd;    /* Bordes de celdas */
+  padding: 8px;              /* Espaciado interno */
+  text-align: center;          /* Alineación texto */
+}
+.mi-tabla th {
+  background-color: #a3a3a3; /* Color de fondo encabezado */
+}
+
+.tabla {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+
+
