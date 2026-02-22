@@ -3,78 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Traductor Franco</title>
+    <title>App Franco</title>
+    
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" href="foto.jpg" type="image/jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" href="fondo.jpg">
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #c08ca9a9; color: white; margin: 0; overflow: hidden; }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            overflow: hidden;
+            background-color: #c08ca9a9;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
 
         #menu { 
-            width: 100%; height: 100vh; display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; position: fixed; 
-            top: 0; left: 0; transition: 0.3s; z-index: 10;
+            width: 100%; height: 100vh; 
+            display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; 
+            background: rgba(0,0,0,0.3); /* Capa para resaltar botones */
         }
 
-        /* La sección del traductor ahora es un contenedor para el Google real */
-        #seccion-traductor { 
-            display: none; width: 100%; height: 100vh; 
-            background: #fff; position: fixed; top: 0; left: 0; 
-            flex-direction: column; z-index: 20;
+        h1 { background: rgba(255, 255, 255, 0.8); padding: 10px 20px; border-radius: 12px; color: #222; }
+
+        .btn { 
+            padding: 18px 35px; font-size: 20px; border: none; 
+            border-radius: 15px; cursor: pointer; font-weight: bold; 
+            background: #222; color: white; margin: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
-        /* Barra superior para poder volver al menú */
-        .barra-superior {
-            width: 100%; height: 50px; background: #222; 
-            display: flex; align-items: center; padding: 0 10px;
-            box-sizing: border-box;
-        }
-
-        .btn { padding: 15px 30px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; background: #222; color: white; margin: 10px; transition: 0.2s; }
-        .btn:active { transform: scale(0.95); opacity: 0.8; }
-
-        .btn-volver { background: #ff4757; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-        /* Estilo del marco que carga Google */
-        iframe {
-            width: 100%;
-            flex-grow: 1; /* Ocupa todo el espacio restante */
-            border: none;
-        }
+        .btn-cerrar { background: #ff4757; }
     </style>
 </head>
 <body>
 
     <div id="menu">
-        <h1 style="color: #222;">App</h1>
-        <button class="btn" onclick="mostrarTraductor()">❤️Traductor personal❤️</button>
-        <button class="btn" onclick="window.close()" style="background:#ff4757">✘Cerrar App✘</button>
-    </div>
-
-    <div id="seccion-traductor">
-        <div class="barra-superior">
-            <button class="btn-volver" onclick="volver()">⬅ Volver al Menú</button>
-            <span style="margin-left: 20px; color: white; font-size: 14px;">Google Translate</span>
-        </div>
-        <iframe id="google-frame" src=""></iframe>
+        <h1>❤️ App ❤️</h1>
+        <button class="btn" onclick="abrirGoogle()">🌐 Traductor de Google</button>
+        <button class="btn btn-cerrar" onclick="window.close()">✘ Cerrar App ✘</button>
     </div>
 
     <script>
-        const menu = document.getElementById('menu');
-        const seccion = document.getElementById('seccion-traductor');
-        const frame = document.getElementById('google-frame');
-
-        function mostrarTraductor() {
-            menu.style.display = 'none';
-            seccion.style.display = 'flex';
-            // Cargamos la URL de Google solo cuando se necesita para ahorrar datos
-            // La versión /m es la más compatible con marcos en tablets
-            frame.src = "https://translate.google.com/m?hl=es";
-        }
-
-        function volver() {
-            seccion.style.display = 'none';
-            menu.style.display = 'flex';
-            frame.src = ""; // Limpiamos para que no siga cargando de fondo
+        function abrirGoogle() {
+            // El truco está en usar window.location.replace para que se abra 
+            // en la misma ventana y no cree una pestaña nueva.
+            window.location.href = "https://translate.google.com/?hl=es";
         }
     </script>
 </body>
