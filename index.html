@@ -4,55 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>App Franco</title>
-    
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="icon" href="fondo.jpg">
-
+    <link rel="icon" href="foto.jpg" type="image/jpg">
+    
     <style>
         body { 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            overflow: hidden;
-            background-color: #c08ca9a9;
-            background-image: url('fondo.jpg');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden; 
+            background: #c08ca9a9;
         }
 
         #menu { 
-            width: 100%; height: 100vh; 
-            display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; 
-            background: rgba(0,0,0,0.3); /* Capa para resaltar botones */
+            width: 100%; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            position: fixed; 
+            top: 0; left: 0; 
+            /* Tu imagen de fondo */
+            background-image: url('fondo.jpg'); 
+            background-size: cover; 
+            background-position: center;
         }
 
-        h1 { background: rgba(255, 255, 255, 0.8); padding: 10px 20px; border-radius: 12px; color: #222; }
+        /* Capa oscura para resaltar botones */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .contenido {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { 
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 10px 25px; 
+            border-radius: 15px; 
+            color: #222; 
+            font-size: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
         .btn { 
-            padding: 18px 35px; font-size: 20px; border: none; 
-            border-radius: 15px; cursor: pointer; font-weight: bold; 
-            background: #222; color: white; margin: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            padding: 20px 40px; 
+            font-size: 20px; 
+            border: none; 
+            border-radius: 15px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            background: #222; 
+            color: white; 
+            margin: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
         }
 
+        .btn:active { transform: scale(0.95); opacity: 0.9; }
+
         .btn-cerrar { background: #ff4757; }
+
+        /* Estilo para el pequeño aviso */
+        .aviso {
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div id="menu">
-        <h1>❤️ App ❤️</h1>
-        <button class="btn" onclick="abrirGoogle()">🌐 Traductor de Google</button>
-        <button class="btn btn-cerrar" onclick="window.close()">✘ Cerrar App ✘</button>
+        <div class="overlay"></div>
+        
+        <div class="contenido">
+            <h1>❤️ App ❤️</h1>
+            
+            <button class="btn" onclick="abrirTraductor()">🌐 Abrir Traductor Oficial</button>
+            
+            <button class="btn btn-cerrar" onclick="window.close()">✘ Cerrar App ✘</button>
+            
+            <div class="aviso">El traductor se abrirá en pantalla completa</div>
+        </div>
     </div>
 
     <script>
-        function abrirGoogle() {
-            // El truco está en usar window.location.replace para que se abra 
-            // en la misma ventana y no cree una pestaña nueva.
-            window.location.href = "https://translate.google.com/?hl=es";
+        function abrirTraductor() {
+            // Utilizamos Cambridge o Google (tú eliges)
+            // Esta forma asegura que el navegador no bloquee la conexión
+            const url = "https://dictionary.cambridge.org/es/translate/";
+            
+            // Abrimos en una pestaña nueva que parece una ventana de App
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
     </script>
 </body>
